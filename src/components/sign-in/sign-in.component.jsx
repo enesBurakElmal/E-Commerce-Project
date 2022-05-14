@@ -1,11 +1,12 @@
-import React from 'react'
-
+import { useState, useContext } from 'react'
 import FormInput from '../form-input/form-input.component'
 import CustomButton from '../custom-button/custom-button.component'
 
 import { auth, signInWithGoogle } from '../../firebase/firebase.utils'
 
 import './sign-in.styles.scss'
+import { UserContext } from '../../contexts/user.context'
+import React from 'react'
 
 class SignIn extends React.Component {
   constructor() {

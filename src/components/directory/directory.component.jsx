@@ -1,26 +1,15 @@
-import React from 'react'
-import MenuItem from '../menu-item/menu-item.component'
-import SECTIONS_DATA from './sections.data'
-import './directory.styles.scss'
+import DirectoryItem from '../directory-item/directory-item.component';
 
-class Directory extends React.Component {
-  constructor(props) {
-    super(props)
+import { DirectoryContainer } from './directory.styles';
 
-    this.state = {
-      sections: SECTIONS_DATA,
-    }
-  }
+const Directory = ({ categories }) => {
+  return (
+    <DirectoryContainer>
+      {categories.map((category) => (
+        <DirectoryItem key={category.id} category={category} />
+      ))}
+    </DirectoryContainer>
+  );
+};
 
-  render() {
-    return (
-      <div className="directory-menu">
-        {this.state.sections.map(({ id, ...otherSectionProps }) => (
-          <MenuItem key={id} {...otherSectionProps} />
-        ))}
-      </div>
-    )
-  }
-}
-
-export default Directory
+export default Directory;
